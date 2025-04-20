@@ -1,48 +1,98 @@
 body {
     background-image: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1");
     background-size: cover;
+    background-position: center;
     min-height: 100vh;
     padding: 40px;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
     text-shadow: 1px 1px 2px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 30px;
-    border-radius: 12px;
-    width: 400px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #00ffcc;
 }
 
 label {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 input, .Select-control, .css-1okebmr-indicatorSeparator {
     width: 100% !important;
-    margin-bottom: 10px;
+    padding: 8px 12px;
+    font-size: 15px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 button {
     width: 100%;
-    background-color: #28a745;
+    background: linear-gradient(135deg, #28a745, #218838);
     color: #fff;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 16px;
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
 }
 
 #prediction-output {
-    margin-top: 20px;
-    font-size: 24px;
+    margin-top: 25px;
+    font-size: 26px;
     text-align: center;
     font-weight: bold;
+    color: #00ffcc;
+    text-shadow: 1px 1px 4px #000;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    #prediction-output {
+        font-size: 22px;
+    }
 }

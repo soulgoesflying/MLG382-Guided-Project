@@ -30,11 +30,59 @@ app.layout = html.Div(
         html.Label("Age:"),
         dcc.Input(id='age', type='number', value=16, min=15, max=18),
 
-        html.Label("GPA:"),
-        dcc.Input(id='gpa', type='number', value=3.0, step=0.1, min=0.0, max=4.0),
+        html.Label("Gender:"),
+        dcc.RadioItems(
+            id='gender',
+            options=[
+                {'label': 'Male', 'value': 0},
+                {'label': 'Female', 'value': 1},
+                {'label': 'Other', 'value': 2}
+            ],
+            value=0,
+            inline=True
+        ),
+
+        html.Label("Ethnicity:"),
+        dcc.Dropdown(
+            id='ethnicity',
+            options=[
+                {'label': 'Black', 'value': 0},
+                {'label': 'White', 'value': 1},
+                {'label': 'Hispanic', 'value': 2},
+                {'label': 'Asian', 'value': 3},
+                {'label': 'Other', 'value': 4}
+            ],
+            value=0
+        ),
+
+        html.Label("Parental Education Level:"),
+        dcc.Dropdown(
+            id='parental_education',
+            options=[
+                {'label': 'None', 'value': 0},
+                {'label': 'High School', 'value': 1},
+                {'label': 'College', 'value': 2},
+                {'label': 'Graduate Degree', 'value': 3}
+            ],
+            value=1
+        ),
 
         html.Label("Weekly Study Time (hrs):"),
-        dcc.Input(id='study_time', type='number', value=10, min=0, max=20),
+        dcc.Input(id='study_time', type='number', value=10, min=0, max=40),
+
+        html.Label("Absences:"),
+        dcc.Input(id='absences', type='number', value=0, min=0),
+
+        html.Label("Tutoring:"),
+        dcc.RadioItems(
+            id='tutoring',
+            options=[
+                {'label': 'Yes', 'value': 1},
+                {'label': 'No', 'value': 0}
+            ],
+            value=0,
+            inline=True
+        ),
 
         html.Label("Parental Support:"),
         dcc.Dropdown(
@@ -49,6 +97,28 @@ app.layout = html.Div(
             value=2
         ),
 
+        html.Label("Extracurricular Activities:"),
+        dcc.RadioItems(
+            id='extracurricular',
+            options=[
+                {'label': 'Yes', 'value': 1},
+                {'label': 'No', 'value': 0}
+            ],
+            value=0,
+            inline=True
+        ),
+
+        html.Label("Sports Participation:"),
+        dcc.RadioItems(
+            id='sports',
+            options=[
+                {'label': 'Yes', 'value': 1},
+                {'label': 'No', 'value': 0}
+            ],
+            value=0,
+            inline=True
+        ),
+
         html.Label("Participates in Music?"),
         dcc.RadioItems(
             id='music',
@@ -60,8 +130,20 @@ app.layout = html.Div(
             inline=True
         ),
 
+        html.Label("Volunteering:"),
+        dcc.RadioItems(
+            id='volunteering',
+            options=[
+                {'label': 'Yes', 'value': 1},
+                {'label': 'No', 'value': 0}
+            ],
+            value=0,
+            inline=True
+        ),
+
+        html.Br(),
         html.Button("Predict Grade", id='predict-btn', n_clicks=0),
-        html.Div(id='prediction-output')
+        html.Div(id='prediction-output', style={'marginTop': '20px', 'fontWeight': 'bold'})
     ]
 )
 
@@ -69,21 +151,34 @@ app.layout = html.Div(
     Output('prediction-output', 'children'),
     Input('predict-btn', 'n_clicks'),
     State('age', 'value'),
-    State('gpa', 'value'),
+    State('gender', 'value'),
+    State('ethnicity', 'value'),
+    State('parental_education', 'value'),
     State('study_time', 'value'),
+    State('absences', 'value'),
+    State('tutoring', 'value'),
     State('parental_support', 'value'),
-    State('music', 'value')
+    State('extracurricular', 'value'),
+    State('sports', 'value'),
+    State('music', 'value'),
+    State('volunteering', 'value')
 )
-def predict_grade(n_clicks, age, gpa, study_time, parental_support, music):
+def predict_grade(n_clicks, age, gender, ethnicity, parental_education, study_time,
+                  absences, tutoring, parental_support, extracurricular, sports,
+                  music, volunteering):
     if n_clicks > 0:
-        features = [[age, gpa, study_time, parental_support, music]]
+        features = [[
+            age, gender, ethnicity, parental_education, study_time,
+            absences, tutoring, parental_support, extracurricular,
+            sports, music, volunteering
+        ]]
         prediction = model.predict(features)[0]
 
-        # Optional: map prediction to letter grade
         grade_map = {0: 'F', 1: 'D', 2: 'C', 3: 'B', 4: 'A'}
         grade_letter = grade_map.get(prediction, prediction)
 
-        return f"🎓 Predicted Grade: {grade_letter}"
+        return f"🎯 Predicted Grade: {grade_letter}"
+
     return ""
 
 if __name__ == '__main__':
