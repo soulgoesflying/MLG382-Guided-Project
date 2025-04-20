@@ -63,32 +63,6 @@ app.layout = html.Div(
     ]
 )
 
-# Callback
-@app.callback(
-    Output('prediction-output', 'children'),
-    Input('predict-btn', 'n_clicks'),
-    State('age', 'value'),
-    State('gpa', 'value'),
-    State('study_time', 'value'),
-    State('parental_support', 'value'),
-    State('music', 'value')
-)
-def mock_predict(n_clicks, age, gpa, study_time, parental_support, music):
-    if n_clicks > 0:
-        # Just mock logic for now:
-        if gpa >= 3.5:
-            grade = 'A'
-        elif gpa >= 3.0:
-            grade = 'B'
-        elif gpa >= 2.5:
-            grade = 'C'
-        elif gpa >= 2.0:
-            grade = 'D'
-        else:
-            grade = 'F'
-        return f"🎓 Predicted Grade: {grade}"
-    return ""
-
 # Run the app
 if __name__ == '__main__':
     app.run(debug=True, port=8051)
