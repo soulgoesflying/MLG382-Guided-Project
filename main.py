@@ -63,17 +63,6 @@ app.layout = html.Div(
     ]
 )
 
-# Callback
-@app.callback(
-    Output('prediction-output', 'children'),
-    Input('predict-btn', 'n_clicks'),
-    State('age', 'value'),
-    State('gpa', 'value'),
-    State('study_time', 'value'),
-    State('parental_support', 'value'),
-    State('music', 'value')
-)
-
 # Run the app
 if __name__ == '__main__':
     app.run(debug=True, port=8051)
