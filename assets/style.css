@@ -1,0 +1,48 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1");
+    background-size: cover;
+    min-height: 100vh;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input, .Select-control, .css-1okebmr-indicatorSeparator {
+    width: 100% !important;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#prediction-output {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+}
