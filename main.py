@@ -5,6 +5,9 @@ from dash.dependencies import Input, Output, State
 import pandas as pd
 import os
 import joblib
+from flask import Flask
+
+app = Flask(__name__)
 
 # Basic login setup
 VALID_USERNAME_PASSWORD_PAIRS = {
