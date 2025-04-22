@@ -19,7 +19,7 @@ server = app.server
 server.secret_key = os.environ.get('SECRET_KEY', 'brightpath_default_key')
 
 # Load ML model
-model = joblib.load('model_1.pkl')
+model = joblib.load('mlp_model_smote.pkl')
 
 # Layout
 app.layout = html.Div(
