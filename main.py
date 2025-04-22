@@ -19,8 +19,8 @@ server = app.server
 server.secret_key = os.environ.get('SECRET_KEY', 'brightpath_default_key')
 
 # Load ML model
-model = joblib.load('mlp_model_smote.pkl')
-scaler = joblib.load('mlp_scaler.pkl')
+model = joblib.load('artifacts/mlp_model_smote.pkl')
+scaler = joblib.load('artifacts/mlp_scaler.pkl')
 
 
 # Layout
@@ -179,9 +179,13 @@ def predict_grade(n_clicks, age, gender, ethnicity, parental_education, study_ti
         grade_map = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'F'}
         grade_letter = grade_map.get(prediction, prediction)
 
-        return f"🎯 Predicted Grade: {grade_letter}"
+        if grade_letter == 'F':
+            return "⚠️ You are an at-risk student. Predicted grade: F"
+        else:
+            return f"✅ Your predicted grade is: {grade_letter}"
 
     return ""
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8051)
