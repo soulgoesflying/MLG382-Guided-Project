@@ -174,7 +174,7 @@ def predict_grade(n_clicks, age, gender, ethnicity, parental_education, study_ti
         ]]
         prediction = model.predict(features)[0]
 
-        grade_map = {0: 'F', 1: 'D', 2: 'C', 3: 'B', 4: 'A'}
+        grade_map = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'F'}
         grade_letter = grade_map.get(prediction, prediction)
 
         return f"🎯 Predicted Grade: {grade_letter}"
