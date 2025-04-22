@@ -20,6 +20,8 @@ server.secret_key = os.environ.get('SECRET_KEY', 'brightpath_default_key')
 
 # Load ML model
 model = joblib.load('mlp_model_smote.pkl')
+scaler = joblib.load('mlp_scaler.pkl')
+
 
 # Layout
 app.layout = html.Div(
