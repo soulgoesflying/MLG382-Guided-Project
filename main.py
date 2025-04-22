@@ -187,5 +187,6 @@ def predict_grade(n_clicks, age, gender, ethnicity, parental_education, study_ti
     return ""
 
 
-if __name__ == '__main__':
-    app.run(debug=True, port=8051)
+if __name__ == "__main__":
+    app.run_server(debug=False, host="0.0.0.0", port=8080)
+
