@@ -3,5 +3,5 @@ services:
     name: brightpath-predictor-app
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:server
+    startCommand: gunicorn main:app
     plan: free
