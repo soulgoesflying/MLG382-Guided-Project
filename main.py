@@ -22,13 +22,15 @@ def create_input_field(label, component):
     return html.Div([dbc.Label(label), component, html.Br()], className="mb-2")
 
 app.layout = dbc.Container([
+    # --- HEADER ROW ---
     dbc.Row([
-    dbc.Col(html.H1([
-        html.I(className="bi bi-mortarboard-fill me-3"), 
-        "BRIGHTPATH PREDICTOR v2.0"
-    ], className="text-center my-5 fw-bold glass-header"), width=12) # Added 'glass-header'
-]),
+        dbc.Col(html.H1([
+            html.I(className="bi bi-mortarboard-fill me-3"), 
+            "BRIGHTPATH PREDICTOR v2.0"
+        ], className="text-center my-5 fw-bold glass-header"), width=12) 
+    ]),
 
+    # --- MAIN CONTENT ROW (This was missing) ---
     dbc.Row([
         # LEFT COLUMN
         dbc.Col([
@@ -57,15 +59,29 @@ app.layout = dbc.Container([
                             {"label": "Music Programs", "value": "music"},
                             {"label": "Volunteering", "value": "volunteer"},
                         ],
-                        value=[], id="activities-checklist", switch=True,inline=False,labelStyle={"display": "block", "marginBottom": "10px"}
+                        value=[], id="activities-checklist", switch=True, inline=False, labelStyle={"display": "block", "marginBottom": "10px"}
                     ),
                     dbc.Button("GENERATE ANALYSIS", id='predict-btn', size="lg", className="w-100 mt-4")
+                ]) # Closes CardBody
+            ]) # Closes Card
+        ], lg=5), # Closes Left Column
+
+        # RIGHT COLUMN (Start)
+        dbc.Col([
+            dbc.Card([
+                dbc.CardHeader(html.H5("Live Diagnostic Result", className="mb-0")),
+                dbc.CardBody([
+                    html.Div(id='prediction-output', className="text-center mb-4"),
+                    dcc.Graph(id='risk-gauge', config={'displayModeBar': False}),
+                    html.Div(id='intervention-alert')
                 ])
             ])
-        ], lg=5),
+        ], lg=7) # Closes Right Column
+    ]) # Closes Main Content Row
+], fluid=True, className="py-4", style={'backgroundColor': 'transparent'}) # Closes Container
 
         # RIGHT COLUMN
-        dbc.Col([
+dbc.Col([
     # 1. LIVE DIAGNOSTIC CARD
     dbc.Card([
         # FIXED: Added missing comma and moved className inside CardHeader
