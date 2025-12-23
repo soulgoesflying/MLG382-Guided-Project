@@ -1,98 +1,98 @@
-body {
-    background-image: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1");
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    padding: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-    text-shadow: 1px 1px 2px #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* --- Global Typography & Contrast Fix --- */
 
-.container {
-    background-color: rgba(0, 0, 0, 0.75);
-    padding: 40px;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* Main Page Title (Top of Page) */
 h1 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    text-align: center;
-    color: #00ffcc;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* Glow + Dark Shadow for maximum visibility */
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.8), 2px 2px 4px rgba(0,0,0,0.9) !important;
 }
 
-label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: 500;
+/* Card Section Headings (e.g., STUDENT ASSESSMENT FORM) */
+.card-header h5 {
+    color: #00f2fe !important; /* Electric Cyan */
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
 }
 
-input, .Select-control, .css-1okebmr-indicatorSeparator {
-    width: 100% !important;
-    padding: 8px 12px;
-    font-size: 15px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
-
-input:focus {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-button {
-    width: 100%;
-    background: linear-gradient(135deg, #28a745, #218838);
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+/* Sub-headings (e.g., ACADEMIC PERFORMANCE) */
+h6.border-bottom {
+    color: #00f2fe !important; 
+    border-bottom: 1px solid rgba(0, 242, 254, 0.4) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
     margin-top: 20px;
-    transition: background 0.3s ease;
 }
 
-button:hover {
-    background: linear-gradient(135deg, #218838, #1e7e34);
+/* Input Labels (e.g., Age, Gender, Study Time) */
+label, .form-label {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,1) !important;
 }
 
-#prediction-output {
-    margin-top: 25px;
-    font-size: 26px;
-    text-align: center;
-    font-weight: bold;
-    color: #00ffcc;
-    text-shadow: 1px 1px 4px #000;
+/* Global Glassmorphism Adjustments */
+body {
+    background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), 
+                url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2560") no-repeat center center fixed !important;
+    background-size: cover !important;
 }
 
-/* Responsive Tweaks */
-@media (max-width: 480px) {
-    .container {
-        padding: 25px;
-        width: 90%;
-    }
+.card {
+    background: rgba(255, 255, 255, 0.08) !important; 
+    backdrop-filter: blur(20px) saturate(180%); 
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 25px !important;
+}
+/* --- Fix for Section Headings --- */
 
-    h1 {
-        font-size: 26px;
-    }
+/* Targets the main Card Header (Student Assessment Form) */
+.card-header h5 {
+    color: #00f2fe !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Adds a glow and a shadow so it's readable on any part of the image */
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+}
 
-    #prediction-output {
-        font-size: 22px;
-    }
+/* Targets the smaller subheadings inside the form (Academic Performance, etc.) */
+.card-body h6 {
+    color: #00f2fe !important;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.3) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+/* --- SPECIFIC FIX FOR CARD TITLES --- */
+
+/* Targets: Student Assessment Form, Live Diagnostic Result, System Logs */
+.card-header, 
+.card-header h5, 
+.card-header .mb-0 {
+    color: #00f2fe !important; /* High-visibility Electric Cyan */
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    /* This creates a dark 'halo' around the letters so they pop */
+    text-shadow: 2px 2px 0px #000, 
+                 -1px -1px 0px #000, 
+                 1px -1px 0px #000, 
+                 -1px 1px 0px #000, 
+                 0px 0px 10px rgba(0,0,0,1) !important;
+}
+
+/* Ensure the header container itself is semi-transparent but readable */
+.card-header {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.3) !important;
+    padding: 15px !important;
 }

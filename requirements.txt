@@ -4,7 +4,7 @@ Flask==3.0.3
 joblib==1.4.2
 pandas==2.2.3
 numpy==2.2.5
-scikit-learn==1.5.1
+scikit-learn>=1.6.0
 imbalanced-learn==0.13.0
 plotly==6.0.1
 matplotlib==3.10.1
