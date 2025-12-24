@@ -11,6 +11,7 @@ from dash_auth import BasicAuth
 # --- 1. SETUP & AUTH ---
 VALID_USERNAME_PASSWORD_PAIRS = {'teacher': 'bright123', 'admin': 'adminpass'}
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX, dbc.icons.BOOTSTRAP])
+server = app.server
 auth = BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
 
 # --- 2. LOAD ARTIFACTS ---
