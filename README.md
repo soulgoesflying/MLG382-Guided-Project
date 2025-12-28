@@ -5,7 +5,7 @@ BrightPath Predictor is a professional-grade machine learning application design
 ---
 
 ## 🚀 Live Application
-**URL:** [https://mlg382-guided-project-qje7.onrender.com](https://mlg382-guided-project-qje7.onrender.com)
+**URL:** [https://mlg382-guided-project-crcd.onrender.com/](https://mlg382-guided-project-crcd.onrender.com/)
 
 > **Note:** As this is hosted on a free Render instance, the server may take **50-60 seconds** to "spin up" if it has been inactive.
 
